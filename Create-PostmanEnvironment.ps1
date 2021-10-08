@@ -1,6 +1,6 @@
 # 
 # Read ION API file and process it into a Postman environment File
-# Christiaan Rentier 2021-10-07
+# Christiaan Rentier (Infor) 2021-10-07
 #
 
 <#
@@ -39,39 +39,44 @@ function Read-ionapiFile {
 		Prerequisite: First create Authorized App in ION API of type Backend Service and download ION API file *.ionapi file 
 		The *.ionapi file is checked if it exists and contains a correctly formed json
 		Return with the json object that is read.
+
 		# Layout of the *.ionapi file
 		Multi Tenant
 			ti   : YOUR_TENANT
 			cn   : test_YOUR_TENANT
 			dt   : 12
-			ci   : YOUR_TENANT~NotXeQFvmWXIWHdGS4VIqObgm265yLFNva4dZxb
-			cs   : WRM6SJgyJbprE2_28buPcDJxjBLe4epHJ7bjktYmERIG4mXRqpT0RggBitJl3Jo2F4MmSi5mOuoJyr3ymrag
+			ci   : YOUR_TENANT~NotXeQFvmWXIWHdGS4VIqObgm265xb
+			cs   : WRM6SJgyJbprE2_28buPcDJxjBLe4epHJ7bjktYmERIG4mXRqtJl3Jo2F4MmSi5mOuoJyr3ymrag
 			iu   : https://mingle-ionapi.inforcloudsuite.com
 			pu   : https://mingle-sso.inforcloudsuite.com:443/YOUR_TENANT/as/
 			oa   : authorization.oauth2
 			ot   : token.oauth2
 			or   : revoke_token.oauth2
 			sc   : {}
-			ev   : U14783581121
+			ev   : U14783582221
 			v    : 1.1
-			saak : YOUR_TENANT#LchSMTO7mDzr3sU2JXRkZTDTzXX71i7_0LFrNvCbz1Qti3BNCd3h5WMIMULuyEN5BrRe0ZOc_ilL6mHtO
-			sask : IZuiNwxHz3X-wXTSmHI1KVYm4ByKoanDnMI80qVLsohaZktL0CeoSu2dLGP1Kui_WXtU827ICKCg39QLsA
+			saak : YOUR_TENANT#LchSMTO7mDzr3sU2JXRkZTDTzXX71i7_0LFrN1Qti3BNCd3h5WMIMULuyEN5BrRe0ZOc_ilL6mHtO
+			sask : IZuiNwxHz3X-wXTSmHI1KVYm4ByKoanDnMI80qVLsotL0CeoSu2dLGP1Kui_WXtU827ICKCg39QLsA
 			
 		On-Premises 
 			ti   : infor
 			cn   : Test_name
 			dt   : 12
-			ci   : infor~qlZngY61WCRsT2TCu3YQpWqxJ7eHeD4u9yu-H2c
-			cs   : mVw9TtoTts5gpD-pvjtHguonS7AHyT0ReE0UAq4SMpt8w6AJdYzO95L01xgDqxoe2Ixaf8ke7pt4ux_deQ
+			ci   : infor~qlZngY61WCRsT2TCu3YQpWqxJ7eHeD4u9yu-
+			cs   : mVw9TtoTts5gpD-pvjtHguonS7AHyT0ReE0UAq4SMpt8wdYzO95L01xgDqxoe2Ixaf8ke7pt4ux_deQ
 			iu   : https://inforostst.infor.com:7443
 			pu   : https://inforostst.infor.com/InforIntSTS/
 			oa   : connect/authorize
 			ot   : connect/token
 			or   : connect/revocation
-			ev   : J16202141212
+			ev   : J16202142212
 			v    : 1.0
-			saak : infor#I_ZMiRvgwgfVVhdYbFqPtMeVeK88qrhwwwJ0xacVX_Qk9VT9Av0M2nwIz91Gw6Kt8e-WAy-DrAeC98_Zg
-			sask : KRcFj293F_v9PAaeZo43qkcnsO_viG88NtcasMzNQ4A7bB9t-CrFDxkuLtx5c5Tj8--UlJluXncJQ
+			saak : infor#I_ZMiRvgwgfVVhdYbFqPtMeVeK88qrhwwwJ0xacVT9Av0M2nwIz91Gw6Kt8e-WAy-DrAeC98_Zg
+			sask : KRcFj293F_v9PAaeZo43qkcnsO_viG88NtcasMzNQ4A7bCrFDxkuLtx5c5Tj8--UlJluXncJQ
+	.PARAMETER
+		The input is the *.ionapi file, based on this a body is constructed 
+	.OUTPUTS
+		The output is the object response containing the relevant Postman environment information
 	#>
 
     [CmdletBinding()]
@@ -111,9 +116,9 @@ function Read-ionapiFile {
 function Create-postmanObject {
 	<#
 	.SYNOPSIS
-		Create the postman_environment.json file based on the *.ionapi file.
+		Create the postman_environment.json object based on the *.ionapi object.
 	.DESCRIPTION
-		The ionapi object is process into a postman_environment file
+		The ionapi object is process into a postman_environment object
 	.PARAMETER
 		The input is the object from the *.ionapi, based on this a body is constructed 
 	.OUTPUTS
@@ -177,7 +182,7 @@ function Create-postmanObject {
 	)
 
 	#
-	# Process the *.ionapi file
+	# Process the *.ionapi object
 	#
 	process {
 		$postmanObject = @{
