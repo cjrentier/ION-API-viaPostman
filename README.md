@@ -77,6 +77,8 @@ In the New Collection set the Authorization at the Authorization Tab
   * Access token = Available Tokens
   * Header Prefix = Bearer
 
+![image](https://user-images.githubusercontent.com/82956918/136540513-dbb640c6-6a84-4cf0-aa60-8ae41010a51e.png)
+
 ![image](https://user-images.githubusercontent.com/82956918/136536390-9dc27d08-6727-4cf6-8759-69b1248f8ca3.png)
 
 **Configure New Token**
@@ -100,7 +102,7 @@ At the top right select the Environment loaded before.
 
 ![image](https://user-images.githubusercontent.com/82956918/136536903-7e6ef32c-0326-41d6-ab78-f8cb24b4fea2.png)
 
-At the Collection on the Authorization tab of the Collection, scroll to the bottom and **Get New Access Token**
+At the Collection on the Authorization tab of the Collection, scroll to the bottom and click **Get New Access Token**
 
 ![image](https://user-images.githubusercontent.com/82956918/136537356-48c84742-aa22-46da-a7c7-3049c4e766e6.png)
 
