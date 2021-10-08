@@ -3,7 +3,10 @@ Access ION API via Postman
 Below example shows:
 * [Prepare the Authorized App of type Backend Service in ION API](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#preparation-in-ion-api)
 * [Process *.ionapi content Function Read-ionapiFile](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#process-ionapi-content-using-function-read-ionapifile)
-* [Create postman_environment object Function Create-postmanObject]()
+* [Create postman_environment object Function Create-postmanObject](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#create-postman_environmentjson-using-function-create-postmanobject)
+* [Use Create-PostmanEnvironment.ps1](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#use-create-postmanenvironmentps1)
+* [Load environment file in Postman](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#environment)
+* [Use environment in Collections](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#collections)
 
 Check https://docs.infor.com for documentation
 
