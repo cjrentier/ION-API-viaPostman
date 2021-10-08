@@ -64,6 +64,8 @@ Go to the Environment of that Workspace
   * Import the postman_environment.json and note the name (this is the Tenant from the environment file but can be renamed)
   * Now the environment can be used for other Collections
 
+![image](https://user-images.githubusercontent.com/82956918/136540245-913a5226-a8ae-4c44-b609-420476ebd260.png)
+
 ![image](https://user-images.githubusercontent.com/82956918/136537537-cd970283-64c7-41ee-99bb-8e9a60814c27.png)
 
 ### Collections
