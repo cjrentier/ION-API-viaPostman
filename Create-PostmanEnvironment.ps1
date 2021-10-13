@@ -229,18 +229,20 @@ Write-Output ('-----------------------------------------------------------------
 $ionapiObject = ( Read-ionapiFile -ionapiFile $ionapiFile )
 if ( $ionapiObject ) {
 	Write-Output ('Processing ionapi file OK	: ' + $ionapiFile )
+	
+	$postmanObject = ( Create-postmanObject -ionapiObject $ionapiObject )
+	if ( $postmanObject ) {
+		Write-Output ('Creating Postman Object OK	: ' + $postmanFile )
+
+		Write-Output ('Creating Postman Environment file :	'  + $postmanFile)
+		$postmanObject | ConvertTo-Json -depth 20 | Out-File $postmanFile
+		
+	} else {
+		Write-Output ('Creating Postman Object Failed: ' + $postmanFile )
+	}
+
 } else {
 	Write-Output ('Processing ionapi file Failed: ' + $ionapiFile )
 }
-
-$postmanObject = ( Create-postmanObject -ionapiObject $ionapiObject )
-if ( $postmanObject ) {
-	Write-Output ('Creating Postman Object OK	: ' + $postmanFile )
-} else {
-	Write-Output ('Creating Postman Object Failed: ' + $postmanFile )
-}
-
-Write-Output ('Creating Postman Environment file :	'  + $postmanFile)
-$postmanObject | ConvertTo-Json -depth 20 | Out-File $postmanFile
 
 Write-Output ('Ready')
