@@ -82,14 +82,14 @@ In the New Collection set the Authorization at the Authorization Tab
 ![image](https://user-images.githubusercontent.com/82956918/136536390-9dc27d08-6727-4cf6-8759-69b1248f8ca3.png)
 
 **Configure New Token**
-  * Token Name 		= Define your own name
-  * Grant Type		= Password Credentials
-  * Access Token URL	= {{pu}}{{ot}}
-  * Client ID		= {{ci}}
-  * Client Secret	= {{cs}}
-  * Username		= {{saak}}
-  * Password		= {{sask}}
-  * Scope		= email
+  * Token Name          = Define your own name
+  * Grant Type          = Password Credentials
+  * Access Token URL    = {{pu}}{{ot}}
+  * Client ID           = {{ci}}
+  * Client Secret       = {{cs}}
+  * Username            = {{saak}}
+  * Password            = {{sask}}
+  * Scope                 = email
   * Client Authentication = Send as Basic Auth header
 
 ![image](https://user-images.githubusercontent.com/82956918/136536275-009663be-4fe8-4831-9d21-39bcb1ec19e9.png)
