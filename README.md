@@ -8,7 +8,7 @@ Below example shows:
 * [Load environment file in Postman](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#environment)
 * [Use environment in Collections](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#collections)
 
-Check https://docs.infor.com for documentation
+Check https://docs.infor.com for documentation, check [Postman](https://www.getpostman.com/apps) to download and install Postman.
 
 ## Preparation in ION API
 Create in ION API a new Authorized App of type Backend Service
