@@ -1,10 +1,12 @@
 # 
-# Read ION API file and process it into a Postman environment File
-# Christiaan Rentier (Infor) 2021-10-07
+# Read an ION API file and process it into a Postman environment File
+# Christiaan Rentier (Infor) 2021-10-13
 #
 
 <#
 .SYNOPSIS
+	Processing Infor ION API file into a Postman environment file.
+	More information on https://learning.postman.com/docs/sending-requests/managing-environments/
 .DESCRIPTION
 	Preparation by user
 	1.	Create Authorized App in ION API of type Backend Service
@@ -100,12 +102,12 @@ function Read-ionapiFile {
 				$result = (Get-Content $ionapiFile | ConvertFrom-Json)
 			}
 			catch{
-				if ( $logLevel -eq 'DEBUG' ) { Write-Host ('Error: No correct *.ionapi file found, please provide correct *.ionapi file') }
+				Write-Verbose -Message 'Error: No correct *.ionapi file found, please provide correct *.ionapi file'
 				Return ''
 			}
 		} 
 		else {
-			if ( $logLevel -eq 'DEBUG' ) { Write-Host ('Error: No *.ionapi file found, please provide *.ionapi file') }
+			Write-Verbose -Message 'Error: No *.ionapi file found, please provide *.ionapi file'
 			Return ''
 		}
 		Return $result
@@ -116,7 +118,7 @@ function Read-ionapiFile {
 function Create-postmanObject {
 	<#
 	.SYNOPSIS
-		Create the postman_environment.json object based on the *.ionapi object.
+		Create a postman_environment.json object based on the *.ionapi object.
 	.DESCRIPTION
 		The ionapi object is process into a postman_environment object
 	.PARAMETER
@@ -163,7 +165,7 @@ function Create-postmanObject {
 				}
 			],
 			"_postman_variable_scope": "environment",
-			"_postman_exported_at": "2020-08-21T15:17:49.840Z",
+			"_postman_exported_at": "2021-01-01T12:00:00.000Z",
 			"_postman_exported_using": "Postman/7.30.1"
 		}
 
@@ -183,10 +185,11 @@ function Create-postmanObject {
 
 	#
 	# Process the *.ionapi object
+	# Original id is like: '0dd73aeb-74e1-47ad-8578-a8b7636bb704'
 	#
 	process {
 		$postmanObject = @{
-			id		= '0dd73aeb-74e1-47ad-8578-a8b7636bb703';
+			id		= 'This_is_Must_Be_Present';
 			name	= $ionapiObject.ti;
 			values	= @{
 				key		= 'ci';
@@ -232,12 +235,12 @@ if ( $ionapiObject ) {
 
 $postmanObject = ( Create-postmanObject -ionapiObject $ionapiObject )
 if ( $postmanObject ) {
-	Write-Output ('Processing ionapi file OK	: ' + $postmanFile )
+	Write-Output ('Creating Postman Object OK	: ' + $postmanFile )
 } else {
-	Write-Output ('Processing ionapi file Failed: ' + $postmanFile )
+	Write-Output ('Creating Postman Object Failed: ' + $postmanFile )
 }
 
-Write-Output ('Creating the Postman Environment file')
+Write-Output ('Creating Postman Environment file :	'  + $postmanFile)
 $postmanObject | ConvertTo-Json -depth 20 | Out-File $postmanFile
 
 Write-Output ('Ready')
