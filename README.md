@@ -26,19 +26,19 @@ Create Service Account and Download the *.ionapi file
 The downloaded *.ionapi file contains below information in JSON format, store this file in a secure place as it contains sensitive user and password information!
 ```
 {
-    "ti": "\<your Tenant\>",
-    "cn": "CR_IMS_\<your Tenant\>",
+    "ti": "<your Tenant>",
+    "cn": "CR_IMS_<your Tenant>",
     "dt": "12",
-    "ci": "\<your Tenant or Infor OS farm\>~8lXksXEcsa3RhA1MU",
+    "ci": "<your Tenant or Infor OS farm>~8lXksXEcsa3RhA1MU",
     "cs": "-0Hu2PDtCJPhDg7MqKTGEjsasHxM_4M05paHaWgfq0mq7OnT87pMT",
     "iu": "https://mingle-ionapi.inforcloudsuite.com",
-    "pu": "https://mingle-sso.inforcloudsuite.com:443/\<your Tenant\>/as/",
+    "pu": "https://mingle-sso.inforcloudsuite.com:443/<your Tenant>/as/",
     "oa": "authorization.oauth2",
     "ot": "token.oauth2",
     "or": "revoke_token.oauth2",
     "ev": "U147858101",
     "v": "1.0",
-    "saak": "\<your Tenant\>#1L41ABBJVczlphHoNAmDJhqMIamo9WCwNHFcR79A",
+    "saak": "<your Tenant>#1L41ABBJVczlphHoNAmDJhqMIamo9WCwNHFcR79A",
     "sask": "B8BRpF2IOat88NkxySo2oDB3RtGQKTycB6R_Apoo4NAVcGZNVozCPm9A"
 }
 ```
