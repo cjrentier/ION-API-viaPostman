@@ -46,8 +46,6 @@ The downloaded *.ionapi file contains below information in JSON format, store th
 This function reads the contents of the *.ionapi file. The output of the function is an object containing the content of the *.ionapi file. 
 * Use iu and ti to construct the URI for ION API calls. 
 * Use pu and ot for token request and refresh.
-![image](https://user-images.githubusercontent.com/82956918/135430608-9d6feace-71bc-442b-a807-e26e7fa74261.png)
-![image](https://user-images.githubusercontent.com/82956918/135430033-a312dec8-86d7-48ea-855b-e25b663d5aa3.png)
 
 ## Create postman_environment.json using Function **Create-postmanObject**
 This function creates Postman environment object based on the *.ionapi object.
