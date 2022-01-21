@@ -26,20 +26,20 @@ Create Service Account and Download the *.ionapi file
 The downloaded *.ionapi file contains below information in JSON format, store this file in a secure place as it contains sensitive user and password information!
 ```
 {
-    "ti": "EDUGDENA031_AX3",
-    "cn": "CR_IMS_EDUGDENA031_AX3",
+    "ti": "\<your Tenant\>",
+    "cn": "CR_IMS_\<your Tenant\>",
     "dt": "12",
-    "ci": "EDUGDENA031_AX3~8lXksXEcsa3RhAZlUc2bkc0XRWkWk2dY1MU",
-    "cs": "-0Hu2PDtCJPhDg7MqKTGEjsasHxM_4M05paHaWgfq06H34WQgxHbmq7OnT87pMT",
+    "ci": "\<your Tenant or Infor OS farm\>~8lXksXEcsa3RhA1MU",
+    "cs": "-0Hu2PDtCJPhDg7MqKTGEjsasHxM_4M05paHaWgfq0mq7OnT87pMT",
     "iu": "https://mingle-ionapi.inforcloudsuite.com",
-    "pu": "https://mingle-sso.inforcloudsuite.com:443/EDUGDENA031_AX3/as/",
+    "pu": "https://mingle-sso.inforcloudsuite.com:443/\<your Tenant\>/as/",
     "oa": "authorization.oauth2",
     "ot": "token.oauth2",
     "or": "revoke_token.oauth2",
     "ev": "U147858101",
     "v": "1.0",
-    "saak": "EDUGDENA031_AX3#1L41ABBJVczlphHoNAmDxIx8YjIeZJhqMIamo9WCwNHFcR79A",
-    "sask": "B8BRpF2IOat88NkxySo2oDB3RtlTKg96UaZ7ou2cGQKTycB6R_Apoo4NAVcGZNVozCPm9A"
+    "saak": "\<your Tenant\>#1L41ABBJVczlphHoNAmDJhqMIamo9WCwNHFcR79A",
+    "sask": "B8BRpF2IOat88NkxySo2oDB3RtGQKTycB6R_Apoo4NAVcGZNVozCPm9A"
 }
 ```
 ## Process *.ionapi content using Function **Read-ionapiFile**
