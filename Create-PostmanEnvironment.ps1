@@ -64,8 +64,8 @@ function Read-ionapiFile {
 			ti   : infor
 			cn   : Test_name
 			dt   : 12
-			ci   : infor~qlZngY61WCRsT2TCu3YQpWqxJ7eHeD4u9yu-
-			cs   : mVw9TtoTts5gpD-pvjtHguonS7AHyT0ReE0UAq4SMpt8wdYzO95L01xgDqxoe2Ixaf8ke7pt4ux_deQ
+			ci   : infor~qlZngY61WCRsT2TCu3YQpWqxeD4u9yu-
+			cs   : mVw9TtoTts5gpD-pvjtHguonS7AHyTAq4SMpt8wdYzO95L01xgDqxoe2Ixaf8ke7pt4ux_deQ
 			iu   : https://inforostst.infor.com:7443
 			pu   : https://inforostst.infor.com/InforIntSTS/
 			oa   : connect/authorize
@@ -73,8 +73,8 @@ function Read-ionapiFile {
 			or   : connect/revocation
 			ev   : J16202142212
 			v    : 1.0
-			saak : infor#I_ZMiRvgwgfVVhdYbFqPtMeVeK88qrhwwwJ0xacVT9Av0M2nwIz91Gw6Kt8e-WAy-DrAeC98_Zg
-			sask : KRcFj293F_v9PAaeZo43qkcnsO_viG88NtcasMzNQ4A7bCrFDxkuLtx5c5Tj8--UlJluXncJQ
+			saak : infor#I_ZMiRvgwgfVVhdYbFqPtMeV0xacVT9Av0M2nwIz91Gw6Kt8e-WAy-DrAeC98_Zg
+			sask : KRcFj293F_v9PAaeZo43qkcnsO_viG7bCrFDxkuLtx5c5Tj8--UlJluXncJQ
 	.PARAMETER
 		The input is the *.ionapi file, based on this a body is constructed 
 	.OUTPUTS
