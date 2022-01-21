@@ -1,5 +1,13 @@
 # ION-API-viaPostman
-Access ION API via Postman
+## Disclaimer
+Below procedures and attached PowerShell scripts must be tested and adjusted at the Customer in a test environment before using in Production environment.
+All URLs, host names, credentials are either fictional or temporary used for demonstration purpose only, adjust them accordingly to your environment.
+
+As credentials are used, take the highest security measures in storing and using the *.ionapi file!!
+
+The software is provided "AS IS", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
+
+## Access ION API via Postman
 Below example shows:
 * [Prepare the Authorized App of type Backend Service in ION API](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#preparation-in-ion-api)
 * [Process *.ionapi content Function Read-ionapiFile](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#process-ionapi-content-using-function-read-ionapifile)
