@@ -122,4 +122,22 @@ When creating a new Request always set on Authorization Tab the Type = **Inherit
 
 Now each request in that Collection can use the OAuth information for that environment easily.
 
+# Automatic request of new Token after expiry
+Postman can use a Pre-Request script (written in JavaScript) to run before each request is sent. This script can be used to request a new token or to refresh the token when it is expired.
+
+The Collection is using an Environment and has been configured using the variables like described above.
+
+Configure manually in the Authorization Tab of the **Collection** the following parameters: Access Token = Available Tokens, use {{access_token}} in the next field, Header Prefix = Bearer.
+
+![image](https://user-images.githubusercontent.com/82956918/154132561-2c374b54-9af1-4dab-9724-a684b47effdb.png)
+
+* This script will request a new token when no token present yet or refresh when the token is expired.
+* The script is designed to be placed on Collection level in the Pre-request Script.
+* If placed or used on other level adjust the script accordingly as all parameters are used in the Environment Scope.
+* It will check variables present in Environment Scope, read if present and create if not present
+** access_token, this will be used by the Collection / Authorization and all requests will be configured to "Inherit auth from parent"
+** refresh_token, token which can be used for refreshing, when there is a valid access_token
+** expires_in, expiry time in seconds
+** refresh_time, the time the token was refreshed
+
 For any questions or details please mail to [Christiaan Rentier](mailto:Christiaan.Rentier@infor.com?subject=ION-API%20via%20Postman)
