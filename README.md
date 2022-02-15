@@ -15,6 +15,8 @@ Below example shows:
 * [Use Create-PostmanEnvironment.ps1](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#use-create-postmanenvironmentps1)
 * [Load environment file in Postman](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#environment)
 * [Use environment in Collections](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#collections)
+Additionally a Pre-request Script to request token automatically:
+* [Automatic request of new Token after expiry](https://github.com/cjrentier/ION-API-viaPostman#automatic-request-of-new-token-after-expiry)
 
 Check https://docs.infor.com for documentation, check [Postman](https://www.getpostman.com/apps) to download and install Postman.
 
@@ -125,12 +127,7 @@ Now each request in that Collection can use the OAuth information for that envir
 # Automatic request of new Token after expiry
 Postman can use a Pre-Request script (written in JavaScript) to run before each request is sent. This script can be used to request a new token or to refresh the token when it is expired.
 
-The Collection is using an Environment and has been configured using the variables like described above.
-
-Configure manually in the Authorization Tab of the **Collection** the following parameters: Access Token = Available Tokens, use {{access_token}} in the next field, Header Prefix = Bearer.
-
-![image](https://user-images.githubusercontent.com/82956918/154132561-2c374b54-9af1-4dab-9724-a684b47effdb.png)
-
+A simple demo Pre-request Script is provided, test and adjust to fit your project:
 * This script will request a new token when no token present yet or refresh when the token is expired.
 * The script is designed to be placed on Collection level in the Pre-request Script.
 * If placed or used on other level adjust the script accordingly as all parameters are used in the Environment Scope.
@@ -139,5 +136,12 @@ Configure manually in the Authorization Tab of the **Collection** the following 
 ** refresh_token, token which can be used for refreshing, when there is a valid access_token
 ** expires_in, expiry time in seconds
 ** refresh_time, the time the token was refreshed
+* this version does not yet refresh the token but simply requests a new token
+
+The Collection is using an Environment and has been configured using the variables like described above.
+
+Configure manually in the Authorization Tab of the **Collection** the following parameters: Access Token = Available Tokens, use {{access_token}} in the next field, Header Prefix = Bearer.
+
+![image](https://user-images.githubusercontent.com/82956918/154132561-2c374b54-9af1-4dab-9724-a684b47effdb.png)
 
 For any questions or details please mail to [Christiaan Rentier](mailto:Christiaan.Rentier@infor.com?subject=ION-API%20via%20Postman)
