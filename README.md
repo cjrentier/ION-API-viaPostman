@@ -119,7 +119,7 @@ Click **Use Token**
 
 **Configure new Requests**
 
-When creating a new Request always set on Authorization Tab the Type = **Inherit auth from parent**
+When creating a new Request in that Collection, always set on Authorization Tab the Type = **Inherit auth from parent**
 
 ![image](https://user-images.githubusercontent.com/82956918/136538029-f34e6690-6685-488c-82fd-9c42b98b5789.png)
 
@@ -141,7 +141,12 @@ A simple demo Pre-request Script is provided, test and adjust to fit your projec
 
 The Collection is using an Environment and has been configured using the variables like described above.
 
-Configure manually in the Authorization Tab of the **Collection** the following parameters: Access Token = Available Tokens, use {{access_token}} in the next field, Header Prefix = Bearer.
+Configure manually in the Authorization Tab of the **Collection** the following parameters: 
+* Access Token = Available Tokens, 
+* use {{access_token}} in the next field, 
+* Header Prefix = Bearer. 
+ 
+There is no need to press the **Get New Access Token** button at the bottom anymore as the script will be executed automatically upon each request.
 
 ![image](https://user-images.githubusercontent.com/82956918/154132561-2c374b54-9af1-4dab-9724-a684b47effdb.png)
 
