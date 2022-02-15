@@ -126,9 +126,9 @@ When creating a new Request in that Collection, always set on Authorization Tab 
 Now each request in that Collection can use the OAuth information for that environment easily.
 
 # Automatic request of new Token after expiry
-Postman can use a Pre-Request script (written in JavaScript) to run before each request is sent. This script can be used to request a new token or to refresh the token when it is expired.
+Postman can use a Pre-request Script (written in JavaScript) to run before each request is sent. This script can be used to request a new token or to refresh the token when it is expired.
 
-A simple demo Pre-request Script is provided, test and adjust to fit your project:
+A simple demo Pre-request Script [Pre-request-Script.js](https://github.com/cjrentier/ION-API-viaPostman/blob/main/Pre-request-Script.js) is provided, test and adjust to fit your project:
 * This script will request a new token when no token present yet or refresh when the token is expired.
 * The script is designed to be placed on Collection level in the Pre-request Script.
 * If placed or used on other level adjust the script accordingly as all parameters are used in the Environment Scope.
