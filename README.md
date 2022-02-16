@@ -25,6 +25,7 @@ Accessing ION API via Postman can be done easily by following this procedure:
   * Configure the Authorization Tab > Access Token to use the access_token variable.
   * Download the provided example JavaScript and copy it to the Pre-request Script tab.
   * For more details: [Automatic request of new Token after expiry](https://github.com/cjrentier/ION-API-viaPostman#automatic-request-of-new-token-after-expiry)
+  * Every new request will call this script and request a new token if needed.
 
 Check https://docs.infor.com for documentation, check [Postman](https://www.getpostman.com/apps) to download and install Postman.
 
