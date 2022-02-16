@@ -8,7 +8,7 @@ As credentials are used, take the highest security measures in storing and using
 The software is provided "AS IS", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
 
 ## Access ION API via Postman
-Accessing ION API via Postman can be achieved by following the following procedure:
+Accessing ION API via Postman can be achieved by following this procedure:
 * In ION API 
 ** Create an Authorized App of type Backend Service
 ** Create a Service Account to be used when needed
