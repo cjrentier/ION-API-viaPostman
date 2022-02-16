@@ -41,7 +41,7 @@ Go to the Environment of that Workspace
   * Now the environment can be used for other Collections
 
 ### Collections
-In the New Collection set the Authorization at the Authorization Tab
+In the New Collection configure the Authorization Tab to use the variables:
   * Type = OAuth 2.0
   * Add auth data to = Request Headers
   * Access token = Available Tokens
