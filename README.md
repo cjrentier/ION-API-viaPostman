@@ -13,8 +13,6 @@ Accessing ION API via Postman can be achieved by following this procedure:
   * Create an Authorized App of type Backend Service.
   * Create a Service Account to be used when needed.
   * Download that *.ionapi file, store it in a safe place!!
-* [Process *.ionapi content Function Read-ionapiFile](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#process-ionapi-content-using-function-read-ionapifile)
-* [Create postman_environment object Function Create-postmanObject](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#create-postman_environmentjson-using-function-create-postmanobject)
 * Convert the *.ionapi file into a postman_environment.json file. [Using the Create-PostmanEnvironment.ps1](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#use-create-postmanenvironmentps1)
 * In Postman:
   * Go to the Environment of that Workspace, click Import and Upload the postman_environment.json, the Environment will have the variables now filled from the file. [Load environment file in Postman](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#environment)
