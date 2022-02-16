@@ -10,21 +10,21 @@ The software is provided "AS IS", without warranty of any kind, express or impli
 ## Access ION API via Postman
 Accessing ION API via Postman can be achieved by following this procedure:
 * In ION API 
-** Create an Authorized App of type Backend Service
-** Create a Service Account to be used when needed
-** Download that *.ionapi file, store it in a safe place!!
+  * Create an Authorized App of type Backend Service
+  * Create a Service Account to be used when needed
+  * Download that *.ionapi file, store it in a safe place!!
 * [Process *.ionapi content Function Read-ionapiFile](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#process-ionapi-content-using-function-read-ionapifile)
 * [Create postman_environment object Function Create-postmanObject](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#create-postman_environmentjson-using-function-create-postmanobject)
 * Convert the *.ionapi file into a postman_environment.json file. [Using the Create-PostmanEnvironment.ps1](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#use-create-postmanenvironmentps1)
 * In Postman:
-** Go to the Environment of that Workspace, click Import and Upload the postman_environment.json, the Environment will have the variables now filled from the file. [Load environment file in Postman](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#environment)
-** Create a new Collection and configure the Authorization tab to use the variables of the Environment selected. [Use environment in Collections](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#collections)
-** Click **Get New Access Token** button and after receiving click "Use Token".
-** Each Request in the Collection must set Authorization Type = **Inherit auth from parent**.
+  * Go to the Environment of that Workspace, click Import and Upload the postman_environment.json, the Environment will have the variables now filled from the file. [Load environment file in Postman](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#environment)
+  * Create a new Collection and configure the Authorization tab to use the variables of the Environment selected. [Use environment in Collections](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#collections)
+  * Click **Get New Access Token** button and after receiving click "Use Token".
+  * Each Request in the Collection must set Authorization Type = **Inherit auth from parent**.
 * Additionally a Pre-request Script is available to request and use token automatically.
-** Configure the Authorization Tab > Access Token to use the access_token variable.
-** Download the provided example JavaScript and copy it to the Pre-request Script tab.
-** For more details: [Automatic request of new Token after expiry](https://github.com/cjrentier/ION-API-viaPostman#automatic-request-of-new-token-after-expiry)
+  * Configure the Authorization Tab > Access Token to use the access_token variable.
+  * Download the provided example JavaScript and copy it to the Pre-request Script tab.
+  * For more details: [Automatic request of new Token after expiry](https://github.com/cjrentier/ION-API-viaPostman#automatic-request-of-new-token-after-expiry)
 
 Check https://docs.infor.com for documentation, check [Postman](https://www.getpostman.com/apps) to download and install Postman.
 
