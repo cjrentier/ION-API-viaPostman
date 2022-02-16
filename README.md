@@ -10,8 +10,8 @@ The software is provided "AS IS", without warranty of any kind, express or impli
 ## Access ION API via Postman
 Accessing ION API via Postman can be achieved by following this procedure:
 * In the Infor ION API Authorized Apps:
-  * Create an Authorized App of type Backend Service
-  * Create a Service Account to be used when needed
+  * Create an Authorized App of type Backend Service.
+  * Create a Service Account to be used when needed.
   * Download that *.ionapi file, store it in a safe place!!
 * [Process *.ionapi content Function Read-ionapiFile](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#process-ionapi-content-using-function-read-ionapifile)
 * [Create postman_environment object Function Create-postmanObject](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#create-postman_environmentjson-using-function-create-postmanobject)
