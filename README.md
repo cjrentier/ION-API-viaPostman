@@ -15,7 +15,9 @@ Accessing ION API via Postman can be done easily by following this procedure:
   * Download that *.ionapi file, store it in a safe place!!
 * Convert the *.ionapi file into a postman_environment.json file. [Using the Create-PostmanEnvironment.ps1](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#use-create-postmanenvironmentps1)
 * In Postman:
-  * Go to the Environment of that Workspace, click Import and Upload the postman_environment.json, the Environment will have the variables now filled from the file. [Load environment file in Postman](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#environment)
+  * Go to the Environment of that Workspace.
+  * Click **Import** and then click **Upload** to import the postman_environment.json.
+  * The Environment will have the variables filled from the file. 
   * Create a new Collection and configure the Authorization tab to use the variables of the Environment selected. [Use environment in Collections](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#collections)
   * Click **Get New Access Token** button and after receiving click "Use Token".
   * Each Request in the Collection must set Authorization Type = **Inherit auth from parent**.
@@ -39,8 +41,6 @@ Go to the Environment of that Workspace
   * Now the environment can be used for other Collections
 
 ### Collections
-**New Collection** 
-
 In the New Collection set the Authorization at the Authorization Tab
   * Type = OAuth 2.0
   * Add auth data to = Request Headers
