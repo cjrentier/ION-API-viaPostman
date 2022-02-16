@@ -26,48 +26,8 @@ Accessing ION API via Postman can be achieved by following this procedure:
 
 Check https://docs.infor.com for documentation, check [Postman](https://www.getpostman.com/apps) to download and install Postman.
 
-## Preparation in ION API
-Create in ION API a new Authorized App of type Backend Service
-
-![image](https://user-images.githubusercontent.com/82956918/135427988-8c3b2bef-c450-479e-bd4e-a32243a8b0cf.png)
-
-Download Credentials, 
-
-![image](https://user-images.githubusercontent.com/82956918/135428039-ce7c4da8-6c30-40eb-9e70-d2915228d5ad.png)
-
-Create Service Account and Download the *.ionapi file
-
-![image](https://user-images.githubusercontent.com/82956918/135428050-fad2ffd8-8158-4fb6-82d0-1e9d0dede103.png)
-
-The downloaded *.ionapi file contains below information in JSON format, store this file in a secure place as it contains sensitive user and password information!
-```
-{
-    "ti": "<your Tenant>",
-    "cn": "CR_IMS_<your Tenant>",
-    "dt": "12",
-    "ci": "<your Tenant or Infor OS farm>~8lXksXEcsa3RhA1MU",
-    "cs": "-0Hu2PDtCJPhDg7MqKTGEjsasHxM_4M05paHaWgfq0mq7OnT87pMT",
-    "iu": "https://mingle-ionapi.inforcloudsuite.com",
-    "pu": "https://mingle-sso.inforcloudsuite.com:443/<your Tenant>/as/",
-    "oa": "authorization.oauth2",
-    "ot": "token.oauth2",
-    "or": "revoke_token.oauth2",
-    "ev": "U147858101",
-    "v": "1.0",
-    "saak": "<your Tenant>#1L41ABBJVczlphHoNAmDJhqMIamo9WCwNHFcR79A",
-    "sask": "B8BRpF2IOat88NkxySo2oDB3RtGQKTycB6R_Apoo4NAVcGZNVozCPm9A"
-}
-```
-## Process *.ionapi content using Function **Read-ionapiFile**
-This function reads the contents of the *.ionapi file. The output of the function is an object containing the content of the *.ionapi file. 
-* Use iu and ti to construct the URI for ION API calls. 
-* Use pu and ot for token request and refresh.
-
-## Create postman_environment.json using Function **Create-postmanObject**
-This function creates Postman environment object based on the *.ionapi object.
-
 ## Use Create-PostmanEnvironment.ps1
-Start the PowerShell script selecting the required methode to test e.g. 
+Run the PowerShell script to convert the  
 ```
 	.\Create-PostmanEnvironment.ps1 -ionapiFile .\myTenant.ionapi -postmanFile .\postman_environment.json
 ```
