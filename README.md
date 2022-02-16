@@ -72,7 +72,7 @@ At the top right select the Environment loaded before.
 
 At the Collection on the Authorization tab of the Collection, scroll to the bottom and click **Get New Access Token**
 
-Click **Use Token**
+Click **Use Token** to load the token, now it can be used for new requests.
 
 **Configure new Requests**
 
