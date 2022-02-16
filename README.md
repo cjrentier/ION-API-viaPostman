@@ -38,10 +38,6 @@ Go to the Environment of that Workspace
   * Import the postman_environment.json and note the name (this is the Tenant from the environment file but can be renamed)
   * Now the environment can be used for other Collections
 
-![image](https://user-images.githubusercontent.com/82956918/136540245-913a5226-a8ae-4c44-b609-420476ebd260.png)
-
-![image](https://user-images.githubusercontent.com/82956918/136537537-cd970283-64c7-41ee-99bb-8e9a60814c27.png)
-
 ### Collections
 **New Collection** 
 
@@ -50,8 +46,6 @@ In the New Collection set the Authorization at the Authorization Tab
   * Add auth data to = Request Headers
   * Access token = Available Tokens
   * Header Prefix = Bearer
-
-![image](https://user-images.githubusercontent.com/82956918/136540513-dbb640c6-6a84-4cf0-aa60-8ae41010a51e.png)
 
 ![image](https://user-images.githubusercontent.com/82956918/136536390-9dc27d08-6727-4cf6-8759-69b1248f8ca3.png)
 
@@ -66,7 +60,7 @@ In the New Collection set the Authorization at the Authorization Tab
   * Scope = email
   * Client Authentication = Send as Basic Auth header
 
-![image](https://user-images.githubusercontent.com/82956918/136536275-009663be-4fe8-4831-9d21-39bcb1ec19e9.png)
+![image](https://user-images.githubusercontent.com/82956918/154308458-22d10454-894c-484d-8cd8-f0396daa2c60.png)
 
 **Load Environment for that Collection**
 
@@ -74,11 +68,9 @@ Select the Collection in the Collections (the Collection line above the Requests
 
 At the top right select the Environment loaded before.
 
-![image](https://user-images.githubusercontent.com/82956918/136536903-7e6ef32c-0326-41d6-ab78-f8cb24b4fea2.png)
+![image](https://user-images.githubusercontent.com/82956918/154308641-9203e368-4048-4adb-8ee2-39f8976f5977.png)
 
 At the Collection on the Authorization tab of the Collection, scroll to the bottom and click **Get New Access Token**
-
-![image](https://user-images.githubusercontent.com/82956918/136537356-48c84742-aa22-46da-a7c7-3049c4e766e6.png)
 
 Click **Use Token**
 
@@ -86,7 +78,7 @@ Click **Use Token**
 
 When creating a new Request in that Collection, always set on Authorization Tab the Type = **Inherit auth from parent**
 
-![image](https://user-images.githubusercontent.com/82956918/136538029-f34e6690-6685-488c-82fd-9c42b98b5789.png)
+![image](https://user-images.githubusercontent.com/82956918/154309176-2cbd2cf7-f4d9-452d-8eba-4508bf70a297.png)
 
 Now each request in that Collection can use the OAuth information for that environment easily.
 
