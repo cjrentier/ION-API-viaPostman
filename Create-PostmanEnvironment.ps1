@@ -1,7 +1,7 @@
 # 
 # Read an ION API file and process it into a Postman environment File
 # Christiaan Rentier (Infor) 2021-10-13
-#
+# 2022-02-17 Tenant added to environment to use it in the Token Name and the URLs of each request
 
 <#
 .SYNOPSIS
@@ -134,6 +134,11 @@ function Create-postmanObject {
 			"name": "YOUR_TENANT",
 			"values": [
 				{
+					"key": "tenant",
+					"value": "YOUR_TENANT",
+					"enabled": true
+				},
+				{
 					"key": "ci",
 					"value": "YOUR_TENANT~NotXeQFvmWXIWHdGS4VIqObgm265yLFNva4dZxb",
 					"enabled": true
@@ -192,6 +197,10 @@ function Create-postmanObject {
 			id		= 'This_is_Must_Be_Present';
 			name	= $ionapiObject.ti;
 			values	= @{
+				key		= 'tenant';
+				value	= $ionapiObject.ti;
+				enabled	= 'true'
+			}, @{
 				key		= 'ci';
 				value	= $ionapiObject.ci;
 				enabled	= 'true'
