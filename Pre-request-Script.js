@@ -1,5 +1,5 @@
 // This script will request a new token when no token present yet or refresh when the token is expired
-// 2022-02-15
+// 2022-02-17
 // The script is designed to be placed on Collection level in the Pre-request Script, 
 // if placed or used on other level adjust the script accordingly as all parameters are used in the Environment Scope
 // It will check variables present in Environment Scope, read if present and create if not present
@@ -57,7 +57,7 @@ if ( pm.environment.has("expires_in") ) {
 
 var tokenDate = new Date(2000,0,1);
 var datestring = tokenDate.getFullYear() + "-" + (tokenDate.getMonth()+1) + "-" + tokenDate.getDate()  + " " + tokenDate.getHours() + ":" + tokenDate.getMinutes();
-console.log(`tokenDate : ${datestring}`);
+
 // Expires time is received after first request, however due to tenant refresh it could be invalid.
 if ( pm.environment.has("refresh_time") ) {
 	var currentRefresh_time = Date.parse(pm.environment.get("refresh_time"));
@@ -91,6 +91,7 @@ console.log(`Username: ${userName}`);
 var userPassword = pm.environment.get('sask');
 console.log(`Password: ${userPassword}`);
 
+// Constructing the request for the token
 var getTokenRequest = {
       url:  auth_url, 
       method: 'POST',
@@ -110,8 +111,9 @@ var getTokenRequest = {
 			]
       }
 };
-console.log(`getTokenRequest : ${getTokenRequest.method}`);
 
+// If token refresh time was >= the expiry time then request a new token
+// If no token is present then the currentRefresh_time was set to 2000-01-01
 if (( new Date() - currentRefresh_time ) >= currentExpires_in ) 
 {
 	console.log(`New token needed, sendRequest for new token.`);
@@ -119,8 +121,6 @@ if (( new Date() - currentRefresh_time ) >= currentExpires_in )
 		// Use the access_token received to set the environment and in the local variables
         var currentAccess_token = res.json().access_token
 		pm.environment.set("access_token", currentAccess_token );
-		//pm.collection.set("access_token", currentAccess_token);
-		//pm.variables.set("access_token", currentAccess_token);
 		console.log(`New access_token: ${currentAccess_token}`);
 
 		// Use the refresh_token received to set the environment
