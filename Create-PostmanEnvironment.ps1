@@ -2,7 +2,7 @@
 # Read an ION API file and process it into a Postman environment File
 # Christiaan Rentier (Infor) 2021-10-13
 # 2022-02-17 Tenant (ti) added to environment to use it in the Token Name and the URLs of each request
-# 2022-02-24 iu added to environment to use it in the URLs of each request
+# 2022-02-24 iu added to environment to use it in the URLs of each request 
 
 <#
 .SYNOPSIS
