@@ -1,7 +1,8 @@
 # 
 # Read an ION API file and process it into a Postman environment File
 # Christiaan Rentier (Infor) 2021-10-13
-# 2022-02-17 Tenant added to environment to use it in the Token Name and the URLs of each request
+# 2022-02-17 Tenant (ti) added to environment to use it in the Token Name and the URLs of each request
+# 2022-02-24 iu added to environment to use it in the URLs of each request
 
 <#
 .SYNOPSIS
@@ -139,13 +140,18 @@ function Create-postmanObject {
 					"enabled": true
 				},
 				{
+					"key": "iu",
+					"value": "https://mingle-ionapi.inforcloudsuite.com",
+					"enabled": true
+				},
+				{
 					"key": "ci",
-					"value": "YOUR_TENANT~NotXeQFvmWXIWHdGS4VIqObgm265yLFNva4dZxb",
+					"value": "YOUR_TENANT~NotXeQFvmWXIm265yLFNva4dZxb",
 					"enabled": true
 				},
 				{
 					"key": "cs",
-					"value": "WRM6SJgyJbprE2_28buPcDJxjBLe4epHJ7bjktYmERIG4mXRqpT0RggBitJl3Jo2F4MmSi5mOuoJyr3ymrag",
+					"value": "WRM6SJgyJbprE2_28buPcDJxjBLe4epHJ7bjJl3Jo2F4MmSi5mOuoJyr3ymrag",
 					"enabled": true
 				},
 				{
@@ -160,12 +166,12 @@ function Create-postmanObject {
 				},
 				{
 					"key": "saak",
-					"value": "YOUR_TENANT#LchSMTO7mDzr3sU2JXRkZTDTzXX71i7_0LFrNvCbz1Qti3BNCd3h5WMIMULuyEN5BrRe0ZOc_ilL6mHtO",
+					"value": "YOUR_TENANT#LchSMTO7mDzr3sU3BNCd3h5WMI_ilL6mHtO",
 					"enabled": true
 				},
 				{
 					"key": "sask",
-					"value": "IZuiNwxHz3X-wXTSmHI1KVYm4ByKoanDnMI80qVLsohaZktL0CeoSu2dLGP1Kui_WXtU827ICKCg39QLsA",
+					"value": "IZuiNwxHz3X-wXTSmHI1KVYm4ui_WXtU827ICKCg39QLsA",
 					"enabled": true
 				}
 			],
@@ -207,6 +213,10 @@ function Create-postmanObject {
 			}, @{
 				key		= 'cs';
 				value	= $ionapiObject.cs;
+				enabled	= 'true'
+			}, @{
+				key		= 'iu';
+				value	= $ionapiObject.iu;
 				enabled	= 'true'
 			}, @{
 				key		= 'pu';
