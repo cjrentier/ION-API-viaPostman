@@ -1,4 +1,6 @@
 # ION-API-viaPostman
+Below procedure and attached scripts can be used to build a file with Postman environment variables based on the *.ionapi file and Pre-request automatically a new OAuth 2.0 token when needed.
+
 ## Disclaimer
 Below procedures and attached PowerShell scripts must be tested and adjusted at the Customer in a test environment before using in Production environment.
 All URLs, host names, credentials are either fictional or temporary used for demonstration purpose only, adjust them accordingly to your environment.
@@ -21,6 +23,7 @@ Accessing ION API via Postman can be done easily by following this procedure:
   * Create a new Collection and configure the Authorization tab to use the variables of the Environment selected. [Use environment in Collections](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#collections)
   * Click **Get New Access Token** button and after receiving click "Use Token".
   * Each Request in the Collection must set Authorization Type = **Inherit auth from parent**.
+  * Use the {{iu}} and {{tenant}} variables to construct the requests.
 * Additionally a Pre-request Script is available to request and use token automatically.
   * Configure the Authorization Tab > Access Token to use the access_token variable.
   * Download the provided example JavaScript and copy it to the Pre-request Script tab.
@@ -51,13 +54,13 @@ In the New Collection configure the Authorization Tab to use the variables:
 ![image](https://user-images.githubusercontent.com/82956918/136536390-9dc27d08-6727-4cf6-8759-69b1248f8ca3.png)
 
 **Configure New Token**
-  * Token Name = Define your own name
+  * Token Name = Define your own name or use {{tenant}} from the environment
   * Grant Type = Password Credentials
-  * Access Token URL = {{pu}}{{ot}}
-  * Client ID = {{ci}}
-  * Client Secret = {{cs}}
-  * Username = {{saak}}
-  * Password = {{sask}}
+  * Access Token URL = {{pu}}{{ot}} (Base URL for calling the authorization server for this tenant and request the Access Token)
+  * Client ID = {{ci}} (ClientID that must be passed to the Authorization Server)
+  * Client Secret = {{cs}} (Client Secret to pass to the Authorization Server)
+  * Username = {{saak}} (Service Account Access Key)
+  * Password = {{sask}} (Service Account Secret Key)
   * Scope = email
   * Client Authentication = Send as Basic Auth header
 
@@ -82,6 +85,13 @@ When creating a new Request in that Collection, always set on Authorization Tab 
 ![image](https://user-images.githubusercontent.com/82956918/154309176-2cbd2cf7-f4d9-452d-8eba-4508bf70a297.png)
 
 Now each request in that Collection can use the OAuth information for that environment easily.
+
+Additionally the {{iu}} and {{tenant}} variables can be used to build the URL for the request. {{iu}} (Base URL for calling the ION API Gateway for this tenant/environment)
+```
+	GET {{iu}}/{{tenant}}/Mingle/SocialService.Svc/User/Detail
+```
+![image](https://user-images.githubusercontent.com/82956918/155566500-b28b3ea0-a3c5-4c99-b9a0-9c3715774816.png)
+
 
 # Automatic request of new Token after expiry
 Postman can use a Pre-request Script (written in JavaScript) to run before each request is sent. This script can be used to request a new token or to refresh the token when it is expired.
