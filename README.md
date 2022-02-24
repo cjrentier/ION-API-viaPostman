@@ -56,7 +56,7 @@ In the New Collection configure the Authorization Tab to use the variables:
 **Configure New Token**
   * Token Name = Define your own name or use {{tenant}} from the environment
   * Grant Type = Password Credentials
-  * Access Token URL = {{pu}}{{ot}} (Base URL for calling the authorization server for this tenant/environment)(Path to append to "pu" to create the Access Token URL)
+  * Access Token URL = {{pu}}{{ot}} (Base URL for calling the authorization server for this tenant/environment and request the Access Token URL)
   * Client ID = {{ci}} (ClientID that must be passed to the Authorization Server)
   * Client Secret = {{cs}} (Client Secret to pass to the Authorization Server)
   * Username = {{saak}} (Service Account Access Key)
