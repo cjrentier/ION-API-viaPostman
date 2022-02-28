@@ -7,9 +7,18 @@
 // 		refresh_token,
 // 		expires_in, in milliseconds
 // 		refresh_time, the time the token was refreshed
-// Configure manually in the Authorization Tab of the Collection the following parameters: Access Token = Available Tokens, use {{access_token}} in the next field, Header Prefix = Bearer
+// Configure manually in the Authorization Tab of the Collection the following parameters: 
+// 		Access Token = Available Tokens, 
+//		use {{access_token}} in the next field, 
+//		Header Prefix = Bearer
+//
+// Flow of the script:
+// 		In case the token is expired it will refresh the token, else it will ask for a new token.
+// 		If the refreshing fails due to whatever reason it will clean the access_token and refresh_token, but not request a new token. (a known limitation)
+//		Next call due to the empty access_token and refresh_token a new token will be requested
 //
 // https://learning.postman.com/docs/sending-requests/variables/
+// Remark: sendRequest is an asynchronous call
 //
 
 let currentAccess_token = "";
@@ -205,5 +214,5 @@ if (currentToken_age >= currentExpires_in ) {
 		});
 	}
 } else {
-	console.log(`Existing access_token is used. Else remove the environment variable refresh_token!`);
+	console.log(`Existing access_token is used, else remove the environment variable refresh_token!`);
 }
