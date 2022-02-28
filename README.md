@@ -103,9 +103,9 @@ A simple demo Pre-request Script [Pre-request-Script.js](https://github.com/cjre
 * It will check variables present in Environment Scope, read if present and create if not present
   * access_token, this will be used by the Collection / Authorization and all requests will be configured to "Inherit auth from parent"
   * refresh_token, token which can be used for refreshing, when there is a valid access_token
-  * expires_in, expiry time in seconds
+  * expires_in, expiry time in milliseconds
   * refresh_time, the time the token was refreshed
-* this version does not yet refresh the token but simply requests a new token
+* When refresh the token fails due to whatever reason it will clear the token variables in the environment and at next call request a new token.
 
 The Collection is using an Environment and has been configured using the variables like described above.
 
