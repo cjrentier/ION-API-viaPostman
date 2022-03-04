@@ -83,6 +83,10 @@ In the New Collection configure the Authorization Tab to use the variables:
   * Scope = leave empty
   * Client Authentication = Send as Basic Auth header
 
+Click **Get New Access Token** which presents a webclient to enter user and password. After entering a Request for Approval for: <Token Name> is requesting access to Infor Cloudsuite for the tenant and the user used.
+
+![image](https://user-images.githubusercontent.com/82956918/156800481-e4572d74-02eb-4ebf-9378-729f845b954d.png)
+
 **Load Environment for that Collection**
 
 Select the Collection in the Collections (the Collection line above the Requests)
