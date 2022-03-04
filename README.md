@@ -87,7 +87,8 @@ Click **Get New Access Token** and click **Use Token** to load the token, now it
 
 ![image](https://user-images.githubusercontent.com/82956918/156803163-21df36b1-2163-4e35-9ec7-777318e22ec6.png)
 
-Click **Get New Access Token** which presents a webclient to enter user and password. After entering a Request for Approval for: <Token Name> is requesting access to Infor Cloudsuite for the tenant and the user used.
+Click **Get New Access Token** which presents a webclient to enter user and password. ![2022-03-04 17_16_00-Postman1](https://user-images.githubusercontent.com/82956918/156804496-e3c49f7d-4751-4ed8-8263-6d6a80f2c2cb.png)
+ After entering user and password and Sign On a new window is shown ![2022-03-04 17_17_12-Postman2](https://user-images.githubusercontent.com/82956918/156804624-1375adab-2d3f-422e-a36f-e7fceff772ed.png) to Request for Approval for: <Token Name> is requesting access to Infor Cloudsuite for the tenant and the user used.
 
 **Load Environment for that Collection**
 
