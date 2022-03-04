@@ -47,7 +47,7 @@ Run the PowerShell script to convert the
 ## Postman
 ### Environment 
 Go to the Environment of that Workspace 
-  * Import the postman_environment.json and note the name (this is the Tenant from the environment file but can be renamed)
+  * Import the postman_environment.json and note the name (this is the name of the Authorized App from the environment file but can be renamed)
   * Now the environment can be used for other Collections
 
 ### Collections
