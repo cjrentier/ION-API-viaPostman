@@ -5,7 +5,7 @@ Below procedure and attached scripts can be used to build a file with Postman en
 Below procedures and attached PowerShell scripts must be tested and adjusted at the Customer in a test environment before using in Production environment.
 All URLs, host names, credentials are either fictional or temporary used for demonstration purpose only, adjust them accordingly to your environment.
 
-As credentials are used, take the highest security measures in storing and using the *.ionapi file!!
+As credentials are used in case of Backend Service type, take the highest security measures in storing and using the *.ionapi file!!
 
 The software is provided "AS IS", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
 
@@ -59,7 +59,7 @@ In the New Collection configure the Authorization Tab to use the variables:
 
 ![image](https://user-images.githubusercontent.com/82956918/136536390-9dc27d08-6727-4cf6-8759-69b1248f8ca3.png)
 
-**Configure New Token for Backend Service Type**
+**Configure New Token when using Authorized App of type Backend Service**
   * Token Name = Define your own name or use {{cn}} from the environment
   * Grant Type = Password Credentials
   * Access Token URL = {{pu}}{{ot}} (Base URL for calling the authorization server for this tenant and request the Access Token)
@@ -74,7 +74,7 @@ In the New Collection configure the Authorization Tab to use the variables:
 
 Click **Get New Access Token** and click **Use Token** to load the token, now it can be used for new requests.
 
-**Configure New Token for Web client Type**
+**Configure New Token when using Authorized App of type Web client**
   * Token Name = Define your own name or use {{cn}} from the environment
   * Grant Type = Authorization Code
   * Callback URL = {{ru}} (Don't check the button Authorize using browser)
