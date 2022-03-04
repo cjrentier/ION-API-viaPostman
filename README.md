@@ -85,7 +85,7 @@ In the New Collection configure the Authorization Tab to use the variables:
 
 Click **Get New Access Token** which presents a webclient to enter user and password. After entering a Request for Approval for: <Token Name> is requesting access to Infor Cloudsuite for the tenant and the user used.
 
-![image](https://user-images.githubusercontent.com/82956918/156800481-e4572d74-02eb-4ebf-9378-729f845b954d.png)
+![image](https://user-images.githubusercontent.com/82956918/156802044-519712c3-6694-4c57-9dcc-d376caa7029f.png)
 
 **Load Environment for that Collection**
 
@@ -134,9 +134,8 @@ Configure manually in the Authorization Tab of the **Collection** the following 
 * Access Token = Available Tokens, 
 * use {{access_token}} in the next field, 
 * Header Prefix = Bearer. 
- 
 There is no need to press the **Get New Access Token** button at the bottom anymore as the script will be executed automatically upon each request.
 
-![image](https://user-images.githubusercontent.com/82956918/154132561-2c374b54-9af1-4dab-9724-a684b47effdb.png)
+![image](https://user-images.githubusercontent.com/82956918/156801774-6874c877-1326-4087-884d-cba4a78d133a.png)
 
 For any questions or details please mail to [Christiaan Rentier](mailto:Christiaan.Rentier@infor.com?subject=ION-API%20via%20Postman)
