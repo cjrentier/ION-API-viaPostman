@@ -131,6 +131,8 @@ A simple demo Pre-request Script [Pre-request-Script.js](https://github.com/cjre
 The Collection is using an Environment and has been configured using the variables like described above.
 
 Configure manually in the Authorization Tab of the **Collection** the following parameters: 
+* Type = OAuth 2.0
+* Add auth data to = Request Headers
 * Access Token = Available Tokens, 
 * use {{access_token}} in the next field, 
 * Header Prefix = Bearer. 
