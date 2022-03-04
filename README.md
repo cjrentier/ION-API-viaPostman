@@ -11,10 +11,15 @@ The software is provided "AS IS", without warranty of any kind, express or impli
 
 ## Access ION API via Postman
 Accessing ION API via Postman can be done easily by following this procedure:
-* In the Infor ION API Authorized Apps:
+* In the Infor ION API Authorized Apps when using type Backend Service:
   * Create an Authorized App of type Backend Service.
   * Create a Service Account to be used when needed.
-  * Download that *.ionapi file, store it in a safe place!!
+  * Download Credentials creating a *.ionapi file, store it in a safe place as it contains user and password!!
+* In the Infor ION API Authorized Apps when using type Web:
+  * Create an Authorized App of type Web
+  * Fill Redirect URL: https://www.postman.com/oauth2/callback
+  * Fill Authorized JavaScript Origins: https://www.postman.com/oauth2/callback
+  * Download Credentials creating a *.ionapi file, it does not contain a user and password!
 * Convert the *.ionapi file into a postman_environment.json file. [Using the Create-PostmanEnvironment.ps1](https://github.com/cjrentier/ION-API-viaPostman/blob/main/README.md#use-create-postmanenvironmentps1)
 * In Postman:
   * Go to the Environment of that Workspace.
@@ -24,7 +29,8 @@ Accessing ION API via Postman can be done easily by following this procedure:
   * Click **Get New Access Token** button and after receiving click "Use Token".
   * Each Request in the Collection must set Authorization Type = **Inherit auth from parent**.
   * Use the {{iu}} and {{tenant}} variables to construct the requests.
-* Additionally a Pre-request Script is available to request and use token automatically.
+  * There are differences depending on the type of Authorized App used: Backend Service or Web client. Both are documented.
+* Additionally a Pre-request Script is available to request and use token automatically when using the Backend Service type.
   * Configure the Authorization Tab > Access Token to use the access_token variable.
   * Download the provided example JavaScript and copy it to the Pre-request Script tab.
   * For more details: [Automatic request of new Token after expiry](https://github.com/cjrentier/ION-API-viaPostman#automatic-request-of-new-token-after-expiry)
