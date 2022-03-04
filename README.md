@@ -136,6 +136,7 @@ Configure manually in the Authorization Tab of the **Collection** the following 
 * Access Token = Available Tokens, 
 * use {{access_token}} in the next field, 
 * Header Prefix = Bearer. 
+
 There is no need to press the **Get New Access Token** button at the bottom anymore as the script will be executed automatically upon each request.
 
 ![image](https://user-images.githubusercontent.com/82956918/156801774-6874c877-1326-4087-884d-cba4a78d133a.png)
