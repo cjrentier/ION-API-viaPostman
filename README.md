@@ -59,8 +59,8 @@ In the New Collection configure the Authorization Tab to use the variables:
 
 ![image](https://user-images.githubusercontent.com/82956918/136536390-9dc27d08-6727-4cf6-8759-69b1248f8ca3.png)
 
-**Configure New Token**
-  * Token Name = Define your own name or use {{tenant}} from the environment
+**Configure New Token for Backend Service Type**
+  * Token Name = Define your own name or use {{cn}} from the environment
   * Grant Type = Password Credentials
   * Access Token URL = {{pu}}{{ot}} (Base URL for calling the authorization server for this tenant and request the Access Token)
   * Client ID = {{ci}} (ClientID that must be passed to the Authorization Server)
@@ -71,6 +71,17 @@ In the New Collection configure the Authorization Tab to use the variables:
   * Client Authentication = Send as Basic Auth header
 
 ![image](https://user-images.githubusercontent.com/82956918/154308458-22d10454-894c-484d-8cd8-f0396daa2c60.png)
+
+**Configure New Token for Web client Type**
+  * Token Name = Define your own name or use {{cn}} from the environment
+  * Grant Type = Authorization Code
+  * Callback URL = {{ru}} (Don't check the button Authorize using browser)
+  * Auth Token URL = {{pu}}{{oa}} (Base URL for calling the authorization server for this tenant and Authorization)
+  * Access Token URL = {{pu}}{{ot}} (Base URL for calling the authorization server for this tenant and request the Access Token)
+  * Client ID = {{ci}} (ClientID that must be passed to the Authorization Server)
+  * Client Secret = {{cs}} (Client Secret to pass to the Authorization Server)
+  * Scope = leave empty
+  * Client Authentication = Send as Basic Auth header
 
 **Load Environment for that Collection**
 
@@ -99,7 +110,7 @@ Additionally the {{iu}} and {{tenant}} variables can be used to build the URL fo
 ![image](https://user-images.githubusercontent.com/82956918/155566500-b28b3ea0-a3c5-4c99-b9a0-9c3715774816.png)
 
 
-# Automatic request of new Token after expiry
+# Automatic request of new Token after expiry when using Backend Service Type
 Postman can use a Pre-request Script (written in JavaScript) to run before each request is sent. This script can be used to request a new token or to refresh the token when it is expired.
 
 A simple demo Pre-request Script [Pre-request-Script.js](https://github.com/cjrentier/ION-API-viaPostman/blob/main/Pre-request-Script.js) is provided, test and adjust it to fit your project:
