@@ -3,6 +3,7 @@
 # Christiaan Rentier (Infor) 2021-10-13
 # 2022-02-17 Tenant (ti) added to environment to use it in the Token Name and the URLs of each request
 # 2022-02-24 iu added to environment to use it in the URLs of each request 
+# 2022-03-04 type of Webclient added having field ru additional
 
 <#
 .SYNOPSIS
@@ -125,14 +126,14 @@ function Create-postmanObject {
 	.PARAMETER
 		The input is the object from the *.ionapi, based on this a body is constructed 
 	.OUTPUTS
-		The output is the object response containing the relevant Postman environment information
+		The output is the object response containing the relevant Postman environment information based on the fields from the *.ionapi input
 
 		Return with the json object that is created.
 		# Layout of the Postman Environment file
 
 		{
 			"id": "0dd73aeb-74e1-47ad-8578-a8b79a9a89a",
-			"name": "YOUR_TENANT",
+			"name": "your description in ION API",
 			"values": [
 				{
 					"key": "tenant",
@@ -201,38 +202,54 @@ function Create-postmanObject {
 	process {
 		$postmanObject = @{
 			id		= 'This_is_Must_Be_Present';
-			name	= $ionapiObject.ti;
+			name	= $ionapiObject.cn;		# cn	Application name
 			values	= @{
 				key		= 'tenant';
-				value	= $ionapiObject.ti;
+				value	= $ionapiObject.ti; # ti	Tenant identifier
+				enabled	= 'true'
+			}, @{
+				key		= 'cn';
+				value	= $ionapiObject.cn; # cn	Application name
 				enabled	= 'true'
 			}, @{
 				key		= 'ci';
-				value	= $ionapiObject.ci;
+				value	= $ionapiObject.ci;	# ci	ClientID that must be passed to the Authorization Server
 				enabled	= 'true'
 			}, @{
 				key		= 'cs';
-				value	= $ionapiObject.cs;
+				value	= $ionapiObject.cs;	# cs	Client Secret to pass to the Authorization Server
 				enabled	= 'true'
 			}, @{
 				key		= 'iu';
-				value	= $ionapiObject.iu;
+				value	= $ionapiObject.iu;	# iu	Base URL for calling the ION API Gateway for this tenant/environment
 				enabled	= 'true'
 			}, @{
 				key		= 'pu';
-				value	= $ionapiObject.pu;
+				value	= $ionapiObject.pu;	# pu	Base URL for calling the authorization server for this tenant/environment
+				enabled	= 'true'
+			}, @{
+				key		= 'oa';
+				value	= $ionapiObject.oa;	# oa	Path to append to "pu" to create the Authorization URL
 				enabled	= 'true'
 			}, @{
 				key		= 'ot';
-				value	= $ionapiObject.ot;
+				value	= $ionapiObject.ot;	# ot	Path to append to "pu" to create the Access Token URL
+				enabled	= 'true'
+			}, @{
+				key		= 'or';
+				value	= $ionapiObject.or;	# or	Path to append to "pu" to revoke a previously obtained token
+				enabled	= 'true'
+			}, @{
+				key		= 'ru';
+				value	= $ionapiObject.ru;	# ru	Redirect URL (used for type Web Client)
 				enabled	= 'true'
 			}, @{
 				key		= 'saak';
-				value	= $ionapiObject.saak;
+				value	= $ionapiObject.saak;	# SAAK	Service Account Access Key (used for type Backend Service)
 				enabled	= 'true'
 			}, @{
 				key		= 'sask';
-				value	= $ionapiObject.sask;
+				value	= $ionapiObject.sask;	# SASK	Service Account Secret Key (used for type Backend Service)
 				enabled	= 'true'
 			}		
 		}
