@@ -84,11 +84,8 @@ Click **Get New Access Token** and click **Use Token** to load the token, now it
   * Client Secret = {{cs}} (Client Secret to pass to the Authorization Server)
   * Scope = leave empty
   * Client Authentication = Send as Basic Auth header
-
-Click **Get New Access Token** which presents a webclient to enter user and password. After entering a Request for Approval for: <Token Name> is requesting access to Infor Cloudsuite for the tenant and the user used.
-
 ![image](https://user-images.githubusercontent.com/82956918/156803163-21df36b1-2163-4e35-9ec7-777318e22ec6.png)
-
+Click **Get New Access Token** which presents a webclient to enter user and password. After entering a Request for Approval for: <Token Name> is requesting access to Infor Cloudsuite for the tenant and the user used.
 
 **Load Environment for that Collection**
 
