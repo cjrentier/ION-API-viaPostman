@@ -70,7 +70,11 @@ In the New Collection configure the Authorization Tab to use the variables:
   * Scope = email
   * Client Authentication = Send as Basic Auth header
 
-![image](https://user-images.githubusercontent.com/82956918/154308458-22d10454-894c-484d-8cd8-f0396daa2c60.png)
+![image](https://user-images.githubusercontent.com/82956918/156803271-63249f1a-ebc9-41a6-919e-124d9bf7a895.png)
+
+At the Collection on the Authorization tab of the Collection, scroll to the bottom and click **Get New Access Token**
+
+Click **Use Token** to load the token, now it can be used for new requests.
 
 **Configure New Token for Web client Type**
   * Token Name = Define your own name or use {{cn}} from the environment
@@ -85,7 +89,8 @@ In the New Collection configure the Authorization Tab to use the variables:
 
 Click **Get New Access Token** which presents a webclient to enter user and password. After entering a Request for Approval for: <Token Name> is requesting access to Infor Cloudsuite for the tenant and the user used.
 
-![image](https://user-images.githubusercontent.com/82956918/156802044-519712c3-6694-4c57-9dcc-d376caa7029f.png)
+![image](https://user-images.githubusercontent.com/82956918/156803163-21df36b1-2163-4e35-9ec7-777318e22ec6.png)
+
 
 **Load Environment for that Collection**
 
@@ -94,10 +99,6 @@ Select the Collection in the Collections (the Collection line above the Requests
 At the top right select the Environment loaded before.
 
 ![image](https://user-images.githubusercontent.com/82956918/154308641-9203e368-4048-4adb-8ee2-39f8976f5977.png)
-
-At the Collection on the Authorization tab of the Collection, scroll to the bottom and click **Get New Access Token**
-
-Click **Use Token** to load the token, now it can be used for new requests.
 
 **Configure new Requests**
 
