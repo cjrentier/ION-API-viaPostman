@@ -72,9 +72,7 @@ In the New Collection configure the Authorization Tab to use the variables:
 
 ![image](https://user-images.githubusercontent.com/82956918/156803271-63249f1a-ebc9-41a6-919e-124d9bf7a895.png)
 
-At the Collection on the Authorization tab of the Collection, scroll to the bottom and click **Get New Access Token**
-
-Click **Use Token** to load the token, now it can be used for new requests.
+Click **Get New Access Token** and click **Use Token** to load the token, now it can be used for new requests.
 
 **Configure New Token for Web client Type**
   * Token Name = Define your own name or use {{cn}} from the environment
