@@ -1,7 +1,10 @@
 # ION-API-viaPostman
 Environment variables in Postman can be used to simplify the connection with ION API in different Infor Tenants, this reduces a lot of manual work.
+
 A small PowerShell script is attached to convert the *.ionapi file into a Postman environment file.
+
 A Pre-request script in Postman can be used to automatically retrieve or refresh an OAuth2.0 token.
+
 Below procedure describes in simple steps how to configure Postman and to use the attached scripts.
 
 ## Disclaimer
