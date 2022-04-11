@@ -4,6 +4,7 @@
 # 2022-02-17 Tenant (ti) added to environment to use it in the Token Name and the URLs of each request
 # 2022-02-24 iu added to environment to use it in the URLs of each request 
 # 2022-03-04 type of Webclient added having field ru additional
+# 2022-04-11 Simplified the script, declaration of output file is not needed but hard-coded based on input file
 
 <#
 .SYNOPSIS
@@ -17,8 +18,9 @@
 	4.	Run this Script to create the Postman Environment file
 	5.	Import the environment into Postman
 .EXAMPLE
-	Start the PowerShell script selecting the required methode to test e.g. 
-	.\Create-PostmanEnvironment.ps1 -ionapiFile .\myTenant.ionapi -postmanFile .\postman_environment.json
+	Start the PowerShell script selecting the *.ionapi file to be processed
+	.\Create-PostmanEnvironment.ps1 -ionapiFile .\myTenant.ionapi
+	This creates a Postman Environment file called .\myTenant_postman_environment.json in the same directory the *.ionapi file is placed
 	
 #>
 
@@ -28,10 +30,7 @@
 param (
 	[string]
 	[Parameter(Mandatory,HelpMessage='The *.ionapi file downloaded from ION API of type Backend Service.')]
-		$ionapiFile,
-	[string]
-	[Parameter(Mandatory,HelpMessage='The Postman file to be created based on *.ionapi file.')]
-		$postmanFile		
+		$ionapiFile		
 )
 
 
@@ -112,7 +111,13 @@ function Read-ionapiFile {
 			Write-Verbose -Message 'Error: No *.ionapi file found, please provide *.ionapi file'
 			Return ''
 		}
-		Return $result
+		$fileExtension = [System.IO.Path]::GetExtension($ionapiFile)
+		if ($fileExtension -eq '.ionapi') {
+			Return $result
+		} else {
+			Write-Verbose -Message 'Error: Extension of file must be *.ionapi, please provide *.ionapi file'
+			Return ''
+		}
 	}
 	
 }
@@ -264,13 +269,16 @@ Write-Output ('-----------------------------------------------------------------
 
 $ionapiObject = ( Read-ionapiFile -ionapiFile $ionapiFile )
 if ( $ionapiObject ) {
+	$fileNameWithoutExtension = [System.IO.Path]::GetFileNameWithoutExtension($ionapiFile)
+	$fileDirectory = [System.IO.Path]::GetDirectoryName($ionapiFile)
 	Write-Output ('Processing ionapi file OK	: ' + $ionapiFile )
 	
 	$postmanObject = ( Create-postmanObject -ionapiObject $ionapiObject )
 	if ( $postmanObject ) {
+		$postmanFile = $fileDirectory + '\' + $fileNameWithoutExtension + '_postman_environment.json'
 		Write-Output ('Creating Postman Object OK	: ' + $postmanFile )
 
-		Write-Output ('Creating Postman Environment file :	'  + $postmanFile)
+		Write-Output ('Creating Postman Environment OK : '  + $postmanFile)
 		$postmanObject | ConvertTo-Json -depth 20 | Out-File $postmanFile
 		
 	} else {
@@ -278,7 +286,7 @@ if ( $ionapiObject ) {
 	}
 
 } else {
-	Write-Output ('Processing ionapi file Failed: ' + $ionapiFile )
+	Write-Output ('Processing ionapi file Failed: ' + $ionapiFile + ' Use -verbose option or check location or protection of directory.')
 }
 
 Write-Output ('Ready')
