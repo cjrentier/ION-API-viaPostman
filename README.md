@@ -45,9 +45,9 @@ Accessing ION API via Postman can be done easily by following this procedure:
 Check https://docs.infor.com for documentation, check [Postman](https://www.getpostman.com/apps) to download and install Postman.
 
 ## Use Create-PostmanEnvironment.ps1
-Run the PowerShell script to convert the  
+Run the PowerShell script to convert the *.ionapi file. The output file is placed in the same directory and has extension .ionapi replaced by _postman_environment.json, write access to the directory is needed.  
 ```
-	.\Create-PostmanEnvironment.ps1 -ionapiFile .\myTenant.ionapi -postmanFile .\postman_environment.json
+	.\Create-PostmanEnvironment.ps1 -ionapiFile .\myTenant.ionapi
 ```
 
 ## Postman
