@@ -1,5 +1,5 @@
 // This script will request a new token when no token present yet or refresh when the token is expired
-// 2022-04-19
+// 2022-05-09
 // The script is designed to be placed on Collection level in the Pre-request Script, 
 // if placed or used on other level adjust the script accordingly as all parameters are used in the Environment Scope
 // It will check variables present in Environment Scope, read if present and create if not present
@@ -13,12 +13,14 @@
 //		Header Prefix = Bearer
 //
 // Flow of the script:
-// 		In case the token is expired it will refresh the token, else it will ask for a new token.
-// 		If the refreshing fails due to whatever reason it will clean the access_token and refresh_token, but not request a new token. (a known limitation)
-//		Next call due to the empty access_token and refresh_token a new token will be requested
+// 		In case the token is expired and we have a refresh token it will refresh the access token
+//			If the refresh fails it will request both a new refresh and access token
+// 		In case the token is expired and we have no refresh token it will request both a new refresh and access token
+//		In all other cases we will use the availible access_token, 
+//          If that fails with unauthorized manually empty the environment variable access_token and refresh_token! 
 //
 // https://learning.postman.com/docs/sending-requests/variables/
-// Remark: sendRequest is an asynchronous call
+// Remark: sendRequest is an asynchronous call in JavaScript
 //
 
 let currentAccess_token = "";
@@ -115,8 +117,7 @@ let refreshTokenRequest = {
       method: 'POST',
       header: {
 		'Accept': 'application/json',
-		'Content-Type': 'application/x-www-form-urlencoded',
-		'Authorization': authorizationToken
+		'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: {
         mode: 'urlencoded',
@@ -165,25 +166,47 @@ if ( currentToken_age >= currentExpires_in ) {
 			if (currentAccess_token) {
 				pm.environment.set("access_token", currentAccess_token );
 				console.log(`New access_token after refresh: ${currentAccess_token}`);
+                // Set the refresh_time to now
+                pm.environment.set("refresh_time", new Date());
+                currentRefresh_time = new Date();
+                // Set the currentExpires_in variable to the time given in the response if it exists
+                if(res.json().expires_in){
+                    currentExpires_in = res.json().expires_in * 1000;
+                } else {
+                    currentExpires_in = 0;
+                }
+                pm.environment.set("expires_in", currentExpires_in);
+                console.log(`New access_token after refresh expires in : ${currentExpires_in}`);
+                console.log('Refreshing token finished');  
 			} else {
-				pm.environment.set("access_token", "");
-				pm.environment.set("refresh_token", "");
-				console.log('Refreshing failed, access_token and refresh_token are cleared so next call will fill them.');
-			}
+				console.log('Refreshing token failed, request a new access_token and refresh_token.');
+                pm.sendRequest(getTokenRequest, function (err, res) {
+                    // Use the access_token received to set the environment and in the local variables
+                    currentAccess_token = res.json().access_token
+                    pm.environment.set("access_token", currentAccess_token );
+                    console.log(`New access_token: ${currentAccess_token}`);
 
-			// Set the refresh_time to now
-			pm.environment.set("refresh_time", new Date());
-			currentRefresh_time = new Date();
+                    // Use the refresh_token received to set the environment
+                    currentRefresh_token = res.json().refresh_token
+                    pm.environment.set("refresh_token", currentRefresh_token );
+                    console.log(`New refresh_token: ${currentRefresh_token}`);
 
-			// Set the currentExpires_in variable to the time given in the response if it exists
-			if(res.json().expires_in){
-				currentExpires_in = res.json().expires_in * 1000;
-			} else {
-				currentExpires_in = 0;
+                    // Set the refresh_time to now
+                    pm.environment.set("refresh_time", new Date());
+                    currentRefresh_time = new Date();
+                    
+                    // Set the currentExpires_in variable to the time given in the response if it exists
+                    if(res.json().expires_in){
+                        currentExpires_in = res.json().expires_in * 1000;
+                    } else {
+                        currentExpires_in = 0;
+                    }
+                    pm.environment.set("expires_in", currentExpires_in);
+                    console.log(`Expires in : ${currentExpires_in}`);
+                    console.log('Getting new token finished.');  
+                });
+
 			}
-			pm.environment.set("expires_in", currentExpires_in);
-			console.log(`New access_token after refresh expires in : ${currentExpires_in}`);
-			console.log('Refreshing token finished');  
 		});
 	} else {
 		console.log('No refresh_token found, new access_token needed, sendRequest for new token.');
@@ -214,5 +237,5 @@ if ( currentToken_age >= currentExpires_in ) {
 		});
 	}
 } else {
-	console.log(`Existing access_token is used, else remove the environment variable refresh_token!`);
+	console.log(`Existing access_token is used, else manually empty the environment variable access_token and refresh_token!`);
 }
