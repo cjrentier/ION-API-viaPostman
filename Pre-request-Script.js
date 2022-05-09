@@ -1,5 +1,5 @@
 // This script will request a new token when no token present yet or refresh when the token is expired
-// 2022-02-28
+// 2022-04-19
 // The script is designed to be placed on Collection level in the Pre-request Script, 
 // if placed or used on other level adjust the script accordingly as all parameters are used in the Environment Scope
 // It will check variables present in Environment Scope, read if present and create if not present
@@ -150,12 +150,12 @@ let getTokenRequest = {
       }
 };
 
-// If token refresh time >= the expiry time then refresh the token in case a refresh_token is present
+// If age of current token >= the expiry time including 60 seconds for safety then refresh the token in case a refresh_token is present
 // If no token is present then the currentRefresh_time was set to 2000-01-01, currentExpires_in was set to 0 and currentRefresh_token was set empty
-currentToken_age = ( new Date() - currentRefresh_time );
+currentToken_age = ( ( new Date() - currentRefresh_time )  + 60000 );
 console.log(`Current Token is ${currentToken_age} milliseconds old`);
 
-if (currentToken_age >= currentExpires_in ) {
+if ( currentToken_age >= currentExpires_in ) {
 	console.log('Current Token is expired or not valid.');
 	if (currentRefresh_token.length > 0 ) {
 		console.log('Token is expired and a refresh token is present, trying to refresh token first.');
