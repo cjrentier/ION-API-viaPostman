@@ -1,5 +1,7 @@
 // This script will request a new token when no token present yet or refresh when the token is expired
-// 2022-05-09
+// 2022-05-09 Version 1.0
+// 2022-12-16 Version 1.1 updated with Scopes
+//
 // The script is designed to be placed on Collection level in the Pre-request Script, 
 // if placed or used on other level adjust the script accordingly as all parameters are used in the Environment Scope
 // It will check variables present in Environment Scope, read if present and create if not present
@@ -96,6 +98,7 @@ pm.expect(pm.environment.has('pu')).to.be.true;
 pm.expect(pm.environment.has('ot')).to.be.true;
 pm.expect(pm.environment.has('saak')).to.be.true;
 pm.expect(pm.environment.has('sask')).to.be.true;
+pm.expect(pm.environment.has('scopes')).to.be.true; // 2022-12-16
 
 let auth_url = pm.environment.get('pu') + pm.environment.get('ot');
 console.log(`Authentication URL: ${auth_url}`);
@@ -107,6 +110,16 @@ let userName = pm.environment.get('saak');
 console.log(`Username: ${userName}`);
 let userPassword = pm.environment.get('sask');
 console.log(`Password: ${userPassword}`);
+//2022-12-16.sn use comma for multiple scopes, cast it as string first and replace any quotes, commas, or []
+let scopesList = pm.environment.get('scopes') + ""; // Cast it as string
+console.log(`Scopes: ${scopesList}`);
+// replace , between the different scopes with a space 
+let scopes = (scopesList).replace(/,/g," "); 
+console.log(`Scopes: ${scopes}`);
+// remove any [, ], and " 
+scopes = (scopes).replace(/[\"\[\]]/g,""); 
+console.log(`Scopes: ${scopes}`);
+//2022-12-16.en
 
 // Constructing the request for refreshing a token
 let authorizationToken = 'Bearer ' + currentAccess_token;
@@ -146,7 +159,7 @@ let getTokenRequest = {
 			{ key: 'client_secret', value: clientSecret },
         	{ key: 'username', value: userName },
         	{ key: 'password', value: userPassword },
-			{ key: 'scope', value: 'email' }
+			{ key: 'scope', value: scopes }  // 2022-12-16
 			]
       }
 };
