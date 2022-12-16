@@ -5,6 +5,7 @@
 # 2022-02-24 iu added to environment to use it in the URLs of each request 
 # 2022-03-04 type of Webclient added having field ru additional
 # 2022-04-11 Simplified the script, declaration of output file is not needed but hard-coded based on input file
+# 2022-12-16 Added support for enforcing Scopes
 
 <#
 .SYNOPSIS
@@ -55,7 +56,7 @@ function Read-ionapiFile {
 			oa   : authorization.oauth2
 			ot   : token.oauth2
 			or   : revoke_token.oauth2
-			sc   : {}
+			sc   : ["INFOR-IFS","Infor-AuditMonitor","Infor-IDM","Infor-ION","Infor-LN","Infor-Mingle","Infor-MinglePN"],
 			ev   : U14783582221
 			v    : 1.1
 			saak : YOUR_TENANT#LchSMTO7mDzr3sU2JXRkZTDTzXX71i7_0LFrN1Qti3BNCd3h5WMIMULuyEN5BrRe0ZOc_ilL6mHtO
@@ -179,7 +180,12 @@ function Create-postmanObject {
 					"key": "sask",
 					"value": "IZuiNwxHz3X-wXTSmHI1KVYm4ui_WXtU827ICKCg39QLsA",
 					"enabled": true
-				}
+				},
+				{
+					"key": "sc",
+					"value": "INFOR-IFS,Infor-AuditMonitor"
+					"enabled": true
+				}				
 			],
 			"_postman_variable_scope": "environment",
 			"_postman_exported_at": "2021-01-01T12:00:00.000Z",
@@ -256,7 +262,11 @@ function Create-postmanObject {
 				key		= 'sask';
 				value	= $ionapiObject.sask;	# SASK	Service Account Secret Key (used for type Backend Service)
 				enabled	= 'true'
-			}		
+			}, @{
+				key		= 'scopes';
+				value	= $ionapiObject.sc;	# Scopes, can be enforced
+				enabled	= 'true'
+			}
 		}
 	return $postmanObject
 	}
