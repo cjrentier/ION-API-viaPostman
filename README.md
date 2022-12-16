@@ -73,7 +73,7 @@ In the New Collection configure the Authorization Tab to use the variables:
   * Client Secret = {{cs}} (Client Secret to pass to the Authorization Server)
   * Username = {{saak}} (Service Account Access Key)
   * Password = {{sask}} (Service Account Secret Key)
-  * Scope = email
+  * Scope = {{sc}} (Scopes filled when enforced in that tenant else leave empty)
   * Client Authentication = Send as Basic Auth header
 
 ![image](https://user-images.githubusercontent.com/82956918/156803271-63249f1a-ebc9-41a6-919e-124d9bf7a895.png)
