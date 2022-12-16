@@ -50,11 +50,11 @@ Scopes can be enforced for a Tenant. This means the Client API should use the co
 Scopes can be enforced for a Tenant in the API Gateway.
 ![image](https://user-images.githubusercontent.com/82956918/208097831-ab4cb63a-a980-45f3-b1a0-8e0ebddbedd8.png)
 
-## Enforcing Scopes for an Authorized Application
+### Enforcing Scopes for an Authorized Application
 Per Authorized Applications the Scopes can be enforced.
 ![image](https://user-images.githubusercontent.com/82956918/208098105-4a8f7c34-4f4f-414f-baf4-bb650b69a4bc.png)
 
-# Selecting Scopes for the Service Account
+### Selecting Scopes for the Service Account
 Associate a user with this service account and select the scopes that this service account will access.
 ![image](https://user-images.githubusercontent.com/82956918/208098287-7100e791-ff81-4c35-b9ac-d17859604d4f.png)
 
