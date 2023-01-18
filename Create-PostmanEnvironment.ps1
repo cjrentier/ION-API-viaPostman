@@ -6,6 +6,7 @@
 # 2022-03-04 type of Webclient added having field ru additional
 # 2022-04-11 Simplified the script, declaration of output file is not needed but hard-coded based on input file
 # 2022-12-16 Added support for enforcing Scopes
+# 2023-01-10 Added empty string to prevent null values in Scopes when not set
 
 <#
 .SYNOPSIS
@@ -264,7 +265,7 @@ function Create-postmanObject {
 				enabled	= 'true'
 			}, @{
 				key		= 'scopes';
-				value	= $ionapiObject.sc;	# Scopes, can be enforced
+				value	= '' + $ionapiObject.sc;	# Scopes, can be enforced, add empty string to prevent null values
 				enabled	= 'true'
 			}
 		}
