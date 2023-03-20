@@ -1,6 +1,6 @@
 # 
 # Read an ION API file and process it into a Postman environment File
-# Christiaan Rentier 2021-10-13
+# Christiaan Rentier 2023-03-20
 # 2022-02-17 Tenant (ti) added to environment to use it in the Token Name and the URLs of each request
 # 2022-02-24 iu added to environment to use it in the URLs of each request 
 # 2022-03-04 type of Webclient added having field ru additional
