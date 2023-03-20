@@ -1,13 +1,13 @@
 # 
 # Read an ION API file and process it into a Postman environment File
-# Christiaan Rentier (Infor) 2021-10-13
+# Christiaan Rentier 2021-10-13
 # 2022-02-17 Tenant (ti) added to environment to use it in the Token Name and the URLs of each request
 # 2022-02-24 iu added to environment to use it in the URLs of each request 
 # 2022-03-04 type of Webclient added having field ru additional
 # 2022-04-11 Simplified the script, declaration of output file is not needed but hard-coded based on input file
 # 2022-12-16 Added support for enforcing Scopes
 # 2023-01-10 Added empty string to prevent null values in Scopes when not set
-# 2023-03-13 Updated any string that possibly contain sensitive information to explicitly state this
+# 2023-03-20 Updated any string that possibly contain sensitive information to explicitly state this
 
 <#
 .SYNOPSIS
@@ -53,8 +53,8 @@ function Read-ionapiFile {
 			dt   : 12
 			ci   : YOUR_TENANT~Security-Sensitive-Information
 			cs   : Secret-Security-Sensitive-Information
-			iu   : https://mingle-ionapi.inforcloudsuite.com
-			pu   : https://mingle-sso.inforcloudsuite.com:443/YOUR_TENANT/as/
+			iu   : https://<Base URL for calling the ION API Gateway for this tenant/environment>
+			pu   : https://<Base URL for calling the authorization server for this tenant/environment>
 			oa   : authorization.oauth2
 			ot   : token.oauth2
 			or   : revoke_token.oauth2
@@ -70,8 +70,8 @@ function Read-ionapiFile {
 			dt   : 12
 			ci   : infor~Security-Sensitive-Information
 			cs   : Secret-Security-Sensitive-Information
-			iu   : https://inforostst.infor.com:7443
-			pu   : https://inforostst.infor.com/InforIntSTS/
+			iu   : https://inforostst.customer.com:7443
+			pu   : https://inforostst.customer.com/InforIntSTS/
 			oa   : connect/authorize
 			ot   : connect/token
 			or   : connect/revocation
@@ -150,7 +150,7 @@ function Create-postmanObject {
 				},
 				{
 					"key": "iu",
-					"value": "https://mingle-ionapi.inforcloudsuite.com",
+					"value": "<Base URL for calling the ION API Gateway for this tenant/environment>",
 					"enabled": true
 				},
 				{
@@ -165,7 +165,7 @@ function Create-postmanObject {
 				},
 				{
 					"key": "pu",
-					"value": "https://mingle-sso.inforcloudsuite.com:443/YOUR_TENANT/as/",
+					"value": "<Base URL for calling the authorization server for this tenant/environment>",
 					"enabled": true
 				},
 				{
@@ -190,7 +190,7 @@ function Create-postmanObject {
 				}				
 			],
 			"_postman_variable_scope": "environment",
-			"_postman_exported_at": "2021-01-01T12:00:00.000Z",
+			"_postman_exported_at": "2023-03-20T12:00:00.000Z",
 			"_postman_exported_using": "Postman/7.30.1"
 		}
 
