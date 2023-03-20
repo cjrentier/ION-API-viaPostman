@@ -1,6 +1,7 @@
 // This script will request a new token when no token present yet or refresh when the token is expired
 // 2022-05-09 Version 1.0
 // 2022-12-16 Version 1.1 updated with Scopes
+// 2023-03-20 Version 1.2 
 //
 // The script is designed to be placed on Collection level in the Pre-request Script, 
 // if placed or used on other level adjust the script accordingly as all parameters are used in the Environment Scope
