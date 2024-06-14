@@ -44,6 +44,24 @@ Accessing ION API via Postman can be done easily by following this procedure:
 
 Check https://docs.infor.com for documentation, check [Postman](https://www.getpostman.com/apps) to download and install Postman.
 
+## Enforcing Scopes
+Scopes can be enforced for a Tenant. This means the Client API should use the correct scope and have these scopes assigned to the Service Account.
+### Enforcing Scopes
+Scopes can be enforced for a Tenant in the API Gateway.
+![image](https://user-images.githubusercontent.com/82956918/208097831-ab4cb63a-a980-45f3-b1a0-8e0ebddbedd8.png)
+
+### Enforcing Scopes for an Authorized Application
+Per Authorized Applications the Scopes can be enforced.
+![image](https://user-images.githubusercontent.com/82956918/208098105-4a8f7c34-4f4f-414f-baf4-bb650b69a4bc.png)
+
+### Selecting Scopes for the Service Account
+Associate a user with this service account and select the scopes that this service account will access.
+![image](https://user-images.githubusercontent.com/82956918/208098287-7100e791-ff81-4c35-b9ac-d17859604d4f.png)
+
+Via User Management > Manage > Service Account the Service Account and the selected Scopes can be reviewed and changed.
+![image](https://user-images.githubusercontent.com/82956918/208098759-b4a82c51-02ae-4128-b589-d973e22b6a0f.png)
+
+
 ## Use Create-PostmanEnvironment.ps1
 Run the PowerShell script to convert the *.ionapi file. The output file is placed in the same directory and has extension .ionapi replaced by _postman_environment.json, write access to the directory is needed.  
 ```
@@ -73,7 +91,7 @@ In the New Collection configure the Authorization Tab to use the variables:
   * Client Secret = {{cs}} (Client Secret to pass to the Authorization Server)
   * Username = {{saak}} (Service Account Access Key)
   * Password = {{sask}} (Service Account Secret Key)
-  * Scope = email
+  * Scope = {{sc}} (Scopes filled when enforced in that tenant else leave empty)
   * Client Authentication = Send as Basic Auth header
 
 ![image](https://user-images.githubusercontent.com/82956918/156803271-63249f1a-ebc9-41a6-919e-124d9bf7a895.png)
