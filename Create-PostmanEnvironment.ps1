@@ -1,13 +1,14 @@
 # 
 # Read an ION API file and process it into a Postman environment File
-# Christiaan Rentier 2023-03-20
+# Christiaan Rentier 2024-12-04
 # 2022-02-17 Tenant (ti) added to environment to use it in the Token Name and the URLs of each request
 # 2022-02-24 iu added to environment to use it in the URLs of each request 
 # 2022-03-04 type of Webclient added having field ru additional
 # 2022-04-11 Simplified the script, declaration of output file is not needed but hard-coded based on input file
 # 2022-12-16 Added support for enforcing Scopes
 # 2023-01-10 Added empty string to prevent null values in Scopes when not set
-# 2023-03-20 Updated any string that possibly contain sensitive information to explicitly state this
+# 2023-03-20 Updated any string that possibly contain sensitive information is replaced by demo information
+# 2024-12-04 Added baseUrl to be used for LN REST API
 
 <#
 .SYNOPSIS
@@ -267,6 +268,10 @@ function Create-postmanObject {
 			}, @{
 				key		= 'scopes';
 				value	= '' + $ionapiObject.sc;	# Scopes, can be enforced, add empty string to prevent null values
+				enabled	= 'true'
+			}, @{
+				key		= 'baseUrl';
+				value	= $ionapiObject.iu + '/' + $ionapiObject.ti + '/LN/lnapi';	# Used for the LN REST API
 				enabled	= 'true'
 			}
 		}
