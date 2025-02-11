@@ -101,7 +101,8 @@ Click **Get New Access Token** and click **Use Token** to load the token, now it
 **Configure New Token when using Authorized App of type Web client**
   * Token Name = Define your own name or use {{cn}} from the environment
   * Grant Type = Authorization Code
-  * Callback URL = {{ru}} (Don't check the button Authorize using browser)
+  * Callback URL (option 1) = {{ru}} and clear the box **Authorize using browser**, use in the Authorized App as Redirect URL: https://www.postman.com/oauth2/callback and have this value in the environment filled for ru too.
+  * Callback URL (option 2) = Check the box **Authorize using browser**, use in the Authorized App as Redirect URL: https://oauth.pstmn.io/v1/callback
   * Auth Token URL = {{pu}}{{oa}} (Base URL for calling the authorization server for this tenant and Authorization)
   * Access Token URL = {{pu}}{{ot}} (Base URL for calling the authorization server for this tenant and request the Access Token)
   * Client ID = {{ci}} (ClientID that must be passed to the Authorization Server)
@@ -111,7 +112,7 @@ Click **Get New Access Token** and click **Use Token** to load the token, now it
 
 ![image](https://user-images.githubusercontent.com/82956918/156803163-21df36b1-2163-4e35-9ec7-777318e22ec6.png)
 
-Click **Get New Access Token** which presents a webclient to enter user and password. After **Sign On** a new window is shown to Request for Approval for: Token Name is requesting access to Infor Cloudsuite for the tenant and the user used.
+Click **Get New Access Token** which presents depending on selected option either a webclient to enter user and password, or opens the browser to directly approve the request. After **Sign On** a new window is shown with Request for Approval for: Token Name is requesting access to Infor Cloudsuite for the tenant and the user used.
 
 ![2022-03-04 17_16_00-Postman1](https://user-images.githubusercontent.com/82956918/156804929-ea157d4b-d508-48cd-87f0-87449b5c38d0.png) ![2022-03-04 17_17_12-Postman2](https://user-images.githubusercontent.com/82956918/156804957-83088717-6628-4849-9c95-65cbfcc97c26.png) 
 
